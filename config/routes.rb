@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :accounts
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  devise_for :accounts, skip: :registration
   resources :posts
 
   root 'posts#index'
